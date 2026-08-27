@@ -205,11 +205,10 @@
   .team-row { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
   .team-photo {
     width: 200px; aspect-ratio: 1; flex: none;
-    border: 1px dashed var(--line-strong);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint);
-    text-align: center; padding: 16px; letter-spacing: 0.03em;
+    border: 1px solid var(--line-strong);
+    overflow: hidden;
   }
+  .team-photo img { width: 100%; height: 100%; object-fit: cover; }
   .team-bio { flex: 1 1 360px; max-width: 60ch; }
   .team-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin: 0 0 12px; }
   .team-name span { font-family: var(--font-mono); font-size: 13px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal); margin-left: 8px; }
@@ -276,16 +275,46 @@
     margin: 0 0 32px;
   }
 
-  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .shot-placeholder {
-    aspect-ratio: 16/10; border: 1px dashed var(--line-strong);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-faint);
-    letter-spacing: 0.04em; text-align: center; padding: 20px;
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 12px; }
+  .laptop-mock { perspective: 1400px; padding: 6px 14px 0; }
+  .laptop { transform-style: preserve-3d; }
+  .laptop-mock--left .laptop { transform: rotateX(6deg) rotateY(11deg) rotateZ(-1deg); }
+  .laptop-mock--right .laptop { transform: rotateX(6deg) rotateY(-11deg) rotateZ(1deg); }
+  .laptop-screen {
+    position: relative;
+    background: var(--ink);
+    border-radius: 9px 9px 2px 2px;
+    padding: 8px 8px 10px;
+    box-shadow: 0 36px 50px -18px rgba(0,0,0,.4), 0 8px 18px -8px rgba(0,0,0,.28);
+  }
+  .laptop-screen img {
+    display: block; width: 100%;
+    aspect-ratio: 1400 / 718; object-fit: cover;
+    border-radius: 2px;
+  }
+  .laptop-cam {
+    position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--ink-faint);
+  }
+  .laptop-hinge { height: 5px; background: var(--line-strong); margin: 0 -4px; }
+  .laptop-base {
+    height: 11px;
+    background: linear-gradient(to bottom, var(--line-strong), var(--ink-faint));
+    clip-path: polygon(4% 0, 96% 0, 100% 100%, 0 100%);
+  }
+  .laptop-mock::after {
+    content: ""; display: block; width: 74%; height: 22px; margin: 8px auto 0;
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--ink) 30%, transparent) 0%, transparent 72%);
+  }
+  .shot-caption {
+    text-align: center; margin: 6px 0 0;
+    font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint);
   }
 
   @media (max-width: 720px) {
     .game-cards, .shots { grid-template-columns: 1fr; }
+    .laptop-mock--left .laptop, .laptop-mock--right .laptop { transform: rotateX(4deg) rotateY(0deg); }
   }
 
   /* ---------- services ---------- */
@@ -362,7 +391,7 @@
       <h2>Who's behind Brander NY.</h2>
     </div>
     <div class="team-row">
-      <div class="team-photo">Photo<br>coming soon</div>
+      <div class="team-photo"><img src="assets/profile.jpg" alt="Justin Brander"></div>
       <div class="team-bio">
         <p class="team-name">Justin Brander <span>Principal &amp; Founder</span></p>
         <p>Brander NY is Justin Brander — a technical product manager with 5+ years running ecommerce and data platforms for an international retail brand, now taking on select outside projects.</p>
@@ -485,8 +514,32 @@
     <p class="tech-note">Built with Next.js and Firebase, with a real 3D globe rendering actual country geography — not a static map.</p>
 
     <div class="shots">
-      <div class="shot-placeholder">Screenshot — JB's Globe<br>coming soon</div>
-      <div class="shot-placeholder">Screenshot — Brander's Five<br>coming soon</div>
+      <div>
+        <div class="laptop-mock laptop-mock--left">
+          <div class="laptop">
+            <div class="laptop-screen">
+              <span class="laptop-cam" aria-hidden="true"></span>
+              <img src="assets/jb-globe.jpg" alt="JB's Globe gameplay: a 3D globe with countries shaded by guess proximity, and a guess history panel">
+            </div>
+            <div class="laptop-hinge"></div>
+            <div class="laptop-base"></div>
+          </div>
+        </div>
+        <p class="shot-caption">JB's Globe</p>
+      </div>
+      <div>
+        <div class="laptop-mock laptop-mock--right">
+          <div class="laptop">
+            <div class="laptop-screen">
+              <span class="laptop-cam" aria-hidden="true"></span>
+              <img src="assets/brander-five.jpg" alt="Brander's Five gameplay: five countries shaded by difficulty on the globe, with a scored results panel">
+            </div>
+            <div class="laptop-hinge"></div>
+            <div class="laptop-base"></div>
+          </div>
+        </div>
+        <p class="shot-caption">Brander's Five</p>
+      </div>
     </div>
   </div>
 </section>
