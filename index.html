@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Justin Brander — Technical Product Manager, NYC</title>
-<meta name="description" content="Technical Product Manager (Kith) building ecommerce, data & Shopify platforms — and shipping side projects to prove it. Available for select projects under Brander NY.">
+<title>Brander NY — Independent Ecommerce &amp; Product Studio</title>
+<meta name="description" content="Brander NY is an independent ecommerce &amp; product studio run by Justin Brander — storefront redesigns, content systems, reporting, and custom tools, built end to end by one person.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%2314181c'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' fill='%23d6912b' text-anchor='middle'%3EJB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,6 +99,11 @@
     letter-spacing: 0.005em;
     margin-top: 8px;
   }
+  .section-head .sub {
+    margin: 10px 0 0;
+    color: var(--ink-soft);
+    font-size: 16.5px;
+  }
 
   /* ---------- nav ---------- */
   header.site-nav {
@@ -148,7 +153,16 @@
     font-weight: 900;
     line-height: 0.94;
     letter-spacing: 0.005em;
-    margin: 16px 0 18px;
+    margin: 16px 0 6px;
+  }
+  .hero .byline {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-ink);
+    margin: 0 0 20px;
   }
   .hero .lede {
     font-family: var(--font-body);
@@ -187,13 +201,26 @@
   @keyframes spin { to { transform: rotate(360deg); } }
   @media (max-width: 720px) { .globe-badge { width: 150px; height: 150px; opacity: 0.35; top: 4px; right: -20px; } }
 
-  /* ---------- about ---------- */
-  .about-body { max-width: 66ch; font-size: 18px; color: var(--ink-soft); }
-  .about-body strong { color: var(--ink); }
+  /* ---------- team ---------- */
+  .team-row { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+  .team-photo {
+    width: 200px; aspect-ratio: 1; flex: none;
+    border: 1px dashed var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint);
+    text-align: center; padding: 16px; letter-spacing: 0.03em;
+  }
+  .team-bio { flex: 1 1 360px; max-width: 60ch; }
+  .team-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin: 0 0 12px; }
+  .team-name span { font-family: var(--font-mono); font-size: 13px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal); margin-left: 8px; }
+  .team-bio p { color: var(--ink-soft); font-size: 17px; margin: 0 0 14px; }
+  .team-bio p:last-child { margin-bottom: 0; }
+  .team-bio strong { color: var(--ink); }
+  @media (max-width: 560px) { .team-photo { width: 140px; } }
 
   /* ---------- timeline ---------- */
   .timeline { border-left: 2px solid var(--line-strong); margin-left: 6px; padding-left: 32px; }
-  .t-item { position: relative; padding-bottom: 44px; }
+  .t-item { position: relative; padding-bottom: 36px; }
   .t-item:last-child { padding-bottom: 0; }
   .t-item::before {
     content: "";
@@ -201,23 +228,22 @@
     width: 12px; height: 12px; border-radius: 50%;
     background: var(--paper); border: 2px solid var(--amber);
   }
-  .t-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .t-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 8px; }
   .t-role { font-family: var(--font-display); font-weight: 700; font-size: 22px; }
   .t-dates { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-faint); letter-spacing: 0.04em; }
-  .t-co { font-size: 15.5px; color: var(--teal); margin: 0 0 10px; font-family: var(--font-mono); letter-spacing: 0.02em; }
   .t-item ul { margin: 0; padding-left: 18px; color: var(--ink-soft); font-size: 16px; }
   .t-item li { margin-bottom: 5px; }
 
   .origin-chain {
     display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
     font-family: var(--font-mono); font-size: 13.5px; color: var(--ink-soft);
-    margin-top: 6px;
+    margin-top: 8px;
   }
   .origin-chain .stop { border: 1px solid var(--line-strong); padding: 5px 10px; color: var(--ink); }
   .origin-chain .arrow { color: var(--ink-faint); }
 
   .edu-card {
-    margin-top: 40px; padding: 18px 22px;
+    margin-top: 36px; padding: 18px 22px;
     border: 1px solid var(--line-strong); background: var(--surface);
     font-size: 15.5px; color: var(--ink-soft);
   }
@@ -301,8 +327,8 @@
     <a href="#top" class="brand">BRANDER <span>NY</span></a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">MENU</button>
     <nav class="links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
+      <a href="#team">Team</a>
+      <a href="#experience">Track Record</a>
       <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
@@ -326,10 +352,11 @@
     </svg>
   </div>
   <div class="hero-inner">
-    <span class="eyebrow">40.7128° N · 74.0060° W — NEW YORK, NY</span>
-    <h1>JUSTIN<br>BRANDER</h1>
-    <p class="lede">Technical Product Manager, building the systems behind ecommerce brands — and, off the clock, the software behind them too.</p>
-    <p class="desc">5+ years turning retail operations into working platforms at Kith: Shopify, order management, shipping, and the data underneath. Taking on a limited number of outside projects under <strong>Brander NY</strong> — storefront redesigns, content systems, reporting, and custom tools.</p>
+    <span class="eyebrow">40.7128° N · 74.0060° W — Independent Studio, NYC</span>
+    <h1>BRANDER<br>NY</h1>
+    <span class="byline">Justin Brander, Principal</span>
+    <p class="lede">An independent product &amp; ecommerce studio. One person, no handoffs, direct to the work.</p>
+    <p class="desc">A limited slate of ecommerce projects — storefront redesigns, content systems, reporting, and custom tools — built end to end by one technical product manager.</p>
     <div class="cta-row">
       <a class="btn primary" href="mailto:brander.justin@gmail.com">Email Me</a>
       <a class="btn" href="#work">See the Work</a>
@@ -337,66 +364,65 @@
   </div>
 </section>
 
-<section class="section" id="about">
+<section class="section" id="team">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">About</span>
-      <h2>Five years turning retail floors into platforms.</h2>
+      <span class="eyebrow">Meet the Team</span>
+      <h2>Small on purpose.</h2>
     </div>
-    <p class="about-body">I'm a <strong>Technical Product Manager</strong> at Kith, where I own the roadmap for internal platforms and ecommerce systems in close partnership with engineering — Shopify catalog integration across storefronts and retail, the proprietary software our warehouse and stores run on, and the shipping platform tying it all to our 3PLs. Before that I was the person people came to for SQL, schema design, and the Snowflake models behind executive reporting.</p>
-    <p class="about-body">I didn't start in a product seat. I started as a stock associate — which means I've done the operational work these systems are built to support, not just spec'd it from a distance. That's the same lens I bring to outside projects: understand how the business actually runs before touching the storefront.</p>
+    <div class="team-row">
+      <div class="team-photo">Photo<br>coming soon</div>
+      <div class="team-bio">
+        <p class="team-name">Justin Brander <span>Principal &amp; Founder</span></p>
+        <p>Brander NY is one person: a technical product manager with 5+ years running ecommerce and data platforms for a national retail brand, now taking on select outside projects.</p>
+        <p>No account manager, no hand-off between the person who sells the project and the person who builds it — <strong>just the person doing the work.</strong> Before product, retail: Justin started on the sales floor, which is why the systems he builds hold up under real operations.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section" id="experience">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Experience</span>
-      <h2>At Kith, and before it.</h2>
+      <span class="eyebrow">Track Record</span>
+      <h2>Retail operator turned product lead.</h2>
+      <p class="sub">5+ years at a national retail &amp; ecommerce brand — from the stockroom to owning its platforms.</p>
     </div>
 
     <div class="timeline">
       <div class="t-item">
-        <div class="t-head"><span class="t-role">Technical Product Manager</span><span class="t-dates">JUN 2025 — PRESENT</span></div>
-        <p class="t-co">Kith Retail, Brooklyn NY</p>
+        <div class="t-head"><span class="t-role">Technical Product Manager</span><span class="t-dates">2025 — PRESENT</span></div>
         <ul>
-          <li>Own roadmap and execution for internal platforms and ecommerce systems with engineering</li>
-          <li>Led international expansion, including the launch of the UK Kith website</li>
-          <li>Own Shopify Catalog Integration across storefronts, OMAS, retail, and downstream systems</li>
-          <li>Leading development of proprietary Retail Operations software — receiving, transfers, shipping, inventory</li>
-          <li>Driving the company-wide shipping platform integrating 3PLs and extending the VRP system</li>
+          <li>Own the roadmap for ecommerce and internal platforms, end to end</li>
+          <li>Lead Shopify catalog integration across storefronts and retail</li>
+          <li>Shipped an international storefront launch and a company-wide shipping platform</li>
         </ul>
       </div>
 
       <div class="t-item">
-        <div class="t-head"><span class="t-role">Associate Product Manager (Technical)</span><span class="t-dates">JAN 2024 — JUN 2025</span></div>
-        <p class="t-co">Kith Retail, Brooklyn NY</p>
+        <div class="t-head"><span class="t-role">Associate Product Manager (Technical)</span><span class="t-dates">2024 — 2025</span></div>
         <ul>
-          <li>Led development of OMAS — order lifecycle and reconciliation</li>
-          <li>Designed and launched a tier-based loyalty program from concept through rollout</li>
-          <li>Go-to SQL expert for schema understanding, analytics, and complex queries</li>
-          <li>Built Snowflake data models, dashboards, and reconciliation tools used across functions</li>
-          <li>Led the global Shopify Checkout migration across payments, duties, and reporting</li>
+          <li>Led an order-management system from lifecycle through reconciliation</li>
+          <li>Built the Snowflake data models and dashboards teams still run on</li>
+          <li>Migrated a global Shopify Checkout across payments, duties, and reporting</li>
         </ul>
       </div>
 
       <div class="t-item">
         <div class="t-head"><span class="t-role">Retail Operations → Product</span><span class="t-dates">2020 — 2023</span></div>
-        <p class="t-co">Kith Retail, Brooklyn NY</p>
-        <p style="margin:0 0 10px;color:var(--ink-soft);font-size:16px;">Grew from the stockroom into product leadership — through operational ownership and technical aptitude, not a lateral hire.</p>
+        <p style="margin:0 0 4px;color:var(--ink-soft);font-size:16px;">Grew into product leadership through operational ownership, not a lateral hire.</p>
         <div class="origin-chain">
-          <span class="stop">Stock Associate, '20</span>
+          <span class="stop">Stock Associate</span>
           <span class="arrow">→</span>
-          <span class="stop">Stock Lead, '21</span>
+          <span class="stop">Stock Lead</span>
           <span class="arrow">→</span>
-          <span class="stop">Assistant Product Manager, '21–'23</span>
+          <span class="stop">Assistant Product Manager</span>
         </div>
       </div>
     </div>
 
     <div class="edu-card">
-      <strong>CUNY Baruch College, Zicklin School of Business</strong> — BBA, Computer Information Systems (Data Analytics), 2020–2024.<br>
-      Capstone: designed an end-to-end data warehouse integrating public datasets via REST APIs, with ELT pipelines and schemas built in Python and SQL.
+      <strong>CUNY Baruch College, Zicklin School of Business</strong> — BBA, Computer Information Systems (Data Analytics), 2020–2024. Capstone: an end-to-end data warehouse with ELT pipelines in Python and SQL.
     </div>
   </div>
 </section>
@@ -450,14 +476,14 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Selected Work</span>
-      <h2>Brander Games — a daily geography game, built solo.</h2>
+      <h2>Brander Games — built solo, for friends and family.</h2>
     </div>
-    <p class="work-intro">A private, invite-only site I built for friends and family in my spare time: two daily geography games, a real 3D globe, admin tooling, and leaderboards — end to end, front to back. It's here because it's proof I can ship a full application, not just scope one.</p>
+    <p class="work-intro">Two daily geography games, a real 3D globe, admin tooling, leaderboards — built end to end, front to back. Proof of shipping a full application, not just scoping one.</p>
 
     <div class="game-cards">
       <div class="game-card">
         <h3>JB's Globe</h3>
-        <p>Guess the mystery country of the day. Every guess shades the globe using real border-to-border distance — not just centroid math — banded into six tiers.</p>
+        <p>Guess the mystery country of the day. Guesses shade the globe by real border-to-border distance, not centroid math, across six tiers.</p>
         <div class="band-legend">
           <span class="band"><span class="swatch" style="background:#5b9c5f"></span>Correct</span>
           <span class="band"><span class="swatch" style="background:#b3564f"></span>Adjacent</span>
@@ -469,7 +495,7 @@
       </div>
       <div class="game-card">
         <h3>Brander's Five</h3>
-        <p>Five countries revealed on the globe, one at a time, spanning easy to hard. Score decays the more guesses it takes — results shareable as a fraction, à la Wordle.</p>
+        <p>Five countries revealed one at a time, easy to hard. Score decays with each guess; results shareable as a fraction.</p>
       </div>
     </div>
 
@@ -502,22 +528,22 @@
       <div class="service-card">
         <span class="num">01</span>
         <h3>Storefront Redesign</h3>
-        <p>Shopify theme &amp; template refresh — homepage through checkout, built on your existing platform.</p>
+        <p>Shopify theme refresh, homepage through checkout.</p>
       </div>
       <div class="service-card">
         <span class="num">02</span>
         <h3>Content &amp; Documentation</h3>
-        <p>Missing pages, a real link-in-bio, and a playbook so you can run the site yourself after launch.</p>
+        <p>Missing pages, a real link-in-bio, a playbook to run it yourself.</p>
       </div>
       <div class="service-card">
         <span class="num">03</span>
         <h3>Data &amp; Reporting</h3>
-        <p>Dashboards and SQL/Python-backed reporting that answer "what's working," not a guess.</p>
+        <p>SQL/Python-backed dashboards that answer what's working.</p>
       </div>
       <div class="service-card">
         <span class="num">04</span>
         <h3>Custom Tools</h3>
-        <p>AI-assisted software for the ad hoc problems a Shopify app can't solve.</p>
+        <p>AI-assisted software for what a Shopify app can't do.</p>
       </div>
     </div>
     <p class="services-cta"><a class="btn primary" href="mailto:brander.justin@gmail.com">Get in touch for a scoped proposal</a></p>
