@@ -275,51 +275,14 @@
     margin: 0 0 32px;
   }
 
-  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 12px; }
-  .laptop-mock { perspective: 1400px; padding: 6px 20px 0; }
-  .laptop { transform-style: preserve-3d; }
-  .laptop-mock--left .laptop { transform: rotateX(11deg) rotateY(11deg) rotateZ(-1deg); }
-  .laptop-mock--right .laptop { transform: rotateX(11deg) rotateY(-11deg) rotateZ(1deg); }
-  .laptop-screen {
-    position: relative;
-    background: var(--ink);
-    border-radius: 13px 13px 3px 3px;
-    padding: 7px 7px 9px;
-    box-shadow: 0 16px 24px -16px rgba(0,0,0,.3);
-  }
-  .laptop-screen img {
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; padding-top: 16px; align-items: start; }
+  .shot { transition: transform .25s ease; }
+  .shot--left { transform: rotate(-2.5deg); }
+  .shot--right { transform: rotate(2.5deg); }
+  .shot:hover { transform: rotate(0deg) scale(1.015); }
+  .shot img {
     display: block; width: 100%;
-    aspect-ratio: 1400 / 718; object-fit: cover;
-    border-radius: 4px;
-  }
-  .laptop-notch {
-    position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
-    width: 15%; height: 9px; border-radius: 0 0 7px 7px;
-    background: var(--ink); z-index: 2;
-  }
-  .laptop-hinge { height: 3px; background: var(--ink-faint); margin: 0 10px; }
-  .laptop-base {
-    position: relative; width: 100%; height: 0; padding-top: 18%;
-    background: linear-gradient(180deg, var(--line-strong), var(--ink-faint));
-    clip-path: polygon(2% 0, 98% 0, 100% 100%, 0 100%);
-  }
-  .laptop-keys {
-    position: absolute; top: 16%; left: 9%; right: 9%; height: 50%;
-    border-radius: 3px;
-    background-color: color-mix(in srgb, var(--ink) 78%, transparent);
-    background-image:
-      repeating-linear-gradient(to right, rgba(255,255,255,.14) 0 1px, transparent 1px calc(100% / 13)),
-      repeating-linear-gradient(to bottom, rgba(255,255,255,.14) 0 1px, transparent 1px calc(100% / 4));
-  }
-  .laptop-trackpad {
-    position: absolute; bottom: 9%; left: 50%; transform: translateX(-50%);
-    width: 22%; height: 20%;
-    border: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
-    border-radius: 3px;
-  }
-  .laptop-mock::after {
-    content: ""; display: block; width: 58%; height: 10px; margin: 6px auto 0;
-    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--ink) 14%, transparent) 0%, transparent 75%);
+    filter: drop-shadow(0 14px 20px rgba(0,0,0,.16));
   }
   .shot-caption {
     text-align: center; margin: 10px 0 0;
@@ -328,7 +291,10 @@
 
   @media (max-width: 720px) {
     .game-cards, .shots { grid-template-columns: 1fr; }
-    .laptop-mock--left .laptop, .laptop-mock--right .laptop { transform: rotateX(9deg) rotateY(0deg); }
+    .shot--left, .shot--right { transform: rotate(0deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .shot { transition: none; }
   }
 
   /* ---------- services ---------- */
@@ -529,34 +495,14 @@
 
     <div class="shots">
       <div>
-        <div class="laptop-mock laptop-mock--left">
-          <div class="laptop">
-            <div class="laptop-screen">
-              <span class="laptop-notch" aria-hidden="true"></span>
-              <img src="assets/jb-globe.jpg" alt="JB's Globe gameplay: a 3D globe with countries shaded by guess proximity, and a guess history panel">
-            </div>
-            <div class="laptop-hinge"></div>
-            <div class="laptop-base">
-              <div class="laptop-keys" aria-hidden="true"></div>
-              <div class="laptop-trackpad" aria-hidden="true"></div>
-            </div>
-          </div>
+        <div class="shot shot--left">
+          <img src="assets/mockup-jb-globe.webp" alt="JB's Globe gameplay on a MacBook: a 3D globe with countries shaded by guess proximity, and a guess history panel">
         </div>
         <p class="shot-caption">JB's Globe</p>
       </div>
       <div>
-        <div class="laptop-mock laptop-mock--right">
-          <div class="laptop">
-            <div class="laptop-screen">
-              <span class="laptop-notch" aria-hidden="true"></span>
-              <img src="assets/brander-five.jpg" alt="Brander's Five gameplay: five countries shaded by difficulty on the globe, with a scored results panel">
-            </div>
-            <div class="laptop-hinge"></div>
-            <div class="laptop-base">
-              <div class="laptop-keys" aria-hidden="true"></div>
-              <div class="laptop-trackpad" aria-hidden="true"></div>
-            </div>
-          </div>
+        <div class="shot shot--right">
+          <img src="assets/mockup-brander-five.webp" alt="Brander's Five gameplay on a MacBook: five countries shaded by difficulty on the globe, with a scored results panel">
         </div>
         <p class="shot-caption">Brander's Five</p>
       </div>
