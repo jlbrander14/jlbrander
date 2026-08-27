@@ -269,21 +269,12 @@
   .game-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
   .game-card { border: 1px solid var(--line-strong); background: var(--surface); padding: 24px; }
   .game-card h3 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-  .game-card p { font-size: 15.5px; color: var(--ink-soft); margin: 0 0 14px; }
-  .band-legend { display: flex; flex-wrap: wrap; gap: 8px; }
-  .band { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-faint); }
-  .swatch { width: 11px; height: 11px; display: inline-block; border: 1px solid var(--line-strong); }
+  .game-card p { font-size: 15.5px; color: var(--ink-soft); margin: 0; }
 
-  .stack-panel {
-    border: 1px solid var(--line-strong); background: var(--ink); color: var(--paper);
-    padding: 26px 28px; margin-bottom: 32px;
+  .tech-note {
+    font-family: var(--font-mono); font-size: 13px; color: var(--ink-faint);
+    margin: 0 0 32px;
   }
-  :root[data-theme="dark"] .stack-panel, :root:not([data-theme="light"]) .stack-panel { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
-  .stack-panel .eyebrow { color: var(--amber); margin-bottom: 14px; }
-  .stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 32px; font-family: var(--font-mono); font-size: 14px; }
-  .stack-grid dt { color: color-mix(in srgb, var(--paper) 55%, transparent); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
-  :root[data-theme="dark"] .stack-grid dt, :root:not([data-theme="light"]) .stack-grid dt { color: var(--ink-faint); }
-  .stack-grid dd { margin: 0; }
 
   .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .shot-placeholder {
@@ -294,7 +285,7 @@
   }
 
   @media (max-width: 720px) {
-    .game-cards, .stack-grid, .shots { grid-template-columns: 1fr; }
+    .game-cards, .shots { grid-template-columns: 1fr; }
   }
 
   /* ---------- services ---------- */
@@ -375,7 +366,7 @@
       <div class="team-bio">
         <p class="team-name">Justin Brander <span>Principal &amp; Founder</span></p>
         <p>Brander NY is Justin Brander — a technical product manager with 5+ years running ecommerce and data platforms for an international retail brand, now taking on select outside projects.</p>
-        <p>Before product, retail: Justin started on the sales floor, which is why the systems he builds hold up under real operations.</p>
+        <p>Before product, retail: Justin started in the stock room, which is why the systems he builds hold up under real operations.</p>
       </div>
     </div>
   </div>
@@ -478,20 +469,12 @@
       <span class="eyebrow">Selected Work</span>
       <h2>Brander Games — a daily geography game.</h2>
     </div>
-    <p class="work-intro">Two daily geography games, a real 3D globe, admin tooling, leaderboards — built end to end, front to back. Proof of shipping a full application, not just scoping one.</p>
+    <p class="work-intro">Two daily geography games for friends and family — a real 3D globe, admin tools, leaderboards, built end to end. Proof of shipping a full application, not just scoping one.</p>
 
     <div class="game-cards">
       <div class="game-card">
         <h3>JB's Globe</h3>
-        <p>Guess the mystery country of the day. Guesses shade the globe by real border-to-border distance, not centroid math, across six tiers.</p>
-        <div class="band-legend">
-          <span class="band"><span class="swatch" style="background:#5b9c5f"></span>Correct</span>
-          <span class="band"><span class="swatch" style="background:#b3564f"></span>Adjacent</span>
-          <span class="band"><span class="swatch" style="background:#c98a3e"></span>Very close</span>
-          <span class="band"><span class="swatch" style="background:#cbb254"></span>Close</span>
-          <span class="band"><span class="swatch" style="background:#8a715a"></span>Far</span>
-          <span class="band"><span class="swatch" style="background:#3a3a3a"></span>Very far</span>
-        </div>
+        <p>Guess the mystery country of the day. Every guess lights up the globe with a hint at how close you are.</p>
       </div>
       <div class="game-card">
         <h3>Brander's Five</h3>
@@ -499,17 +482,7 @@
       </div>
     </div>
 
-    <div class="stack-panel">
-      <span class="eyebrow">Stack</span>
-      <dl class="stack-grid">
-        <div><dt>Frontend</dt><dd>Next.js 15 (App Router), React 19, Tailwind, Framer Motion</dd></div>
-        <div><dt>Globe rendering</dt><dd>react-globe.gl (three.js) — real country polygon geometry</dd></div>
-        <div><dt>Auth &amp; data</dt><dd>Firebase Auth (Google), Cloud Firestore</dd></div>
-        <div><dt>Geo processing</dt><dd>turf.js, build-time border distance &amp; adjacency</dd></div>
-        <div><dt>Matching</dt><dd>fuse.js fuzzy + alias matching for typos</dd></div>
-        <div><dt>Scheduling</dt><dd>Vercel Cron, idempotent daily resets at NY midnight</dd></div>
-      </dl>
-    </div>
+    <p class="tech-note">Built with Next.js and Firebase, with a real 3D globe rendering actual country geography — not a static map.</p>
 
     <div class="shots">
       <div class="shot-placeholder">Screenshot — JB's Globe<br>coming soon</div>
