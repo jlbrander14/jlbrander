@@ -276,45 +276,59 @@
   }
 
   .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 12px; }
-  .laptop-mock { perspective: 1400px; padding: 6px 14px 0; }
+  .laptop-mock { perspective: 1400px; padding: 6px 20px 0; }
   .laptop { transform-style: preserve-3d; }
-  .laptop-mock--left .laptop { transform: rotateX(6deg) rotateY(11deg) rotateZ(-1deg); }
-  .laptop-mock--right .laptop { transform: rotateX(6deg) rotateY(-11deg) rotateZ(1deg); }
+  .laptop-mock--left .laptop { transform: rotateX(11deg) rotateY(11deg) rotateZ(-1deg); }
+  .laptop-mock--right .laptop { transform: rotateX(11deg) rotateY(-11deg) rotateZ(1deg); }
   .laptop-screen {
     position: relative;
     background: var(--ink);
-    border-radius: 9px 9px 2px 2px;
-    padding: 8px 8px 10px;
-    box-shadow: 0 36px 50px -18px rgba(0,0,0,.4), 0 8px 18px -8px rgba(0,0,0,.28);
+    border-radius: 13px 13px 3px 3px;
+    padding: 7px 7px 9px;
+    box-shadow: 0 16px 24px -16px rgba(0,0,0,.3);
   }
   .laptop-screen img {
     display: block; width: 100%;
     aspect-ratio: 1400 / 718; object-fit: cover;
-    border-radius: 2px;
+    border-radius: 4px;
   }
-  .laptop-cam {
-    position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
-    width: 4px; height: 4px; border-radius: 50%;
-    background: var(--ink-faint);
+  .laptop-notch {
+    position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
+    width: 15%; height: 9px; border-radius: 0 0 7px 7px;
+    background: var(--ink); z-index: 2;
   }
-  .laptop-hinge { height: 5px; background: var(--line-strong); margin: 0 -4px; }
+  .laptop-hinge { height: 3px; background: var(--ink-faint); margin: 0 10px; }
   .laptop-base {
-    height: 11px;
-    background: linear-gradient(to bottom, var(--line-strong), var(--ink-faint));
-    clip-path: polygon(4% 0, 96% 0, 100% 100%, 0 100%);
+    position: relative; width: 100%; height: 0; padding-top: 18%;
+    background: linear-gradient(180deg, var(--line-strong), var(--ink-faint));
+    clip-path: polygon(2% 0, 98% 0, 100% 100%, 0 100%);
+  }
+  .laptop-keys {
+    position: absolute; top: 16%; left: 9%; right: 9%; height: 50%;
+    border-radius: 3px;
+    background-color: color-mix(in srgb, var(--ink) 78%, transparent);
+    background-image:
+      repeating-linear-gradient(to right, rgba(255,255,255,.14) 0 1px, transparent 1px calc(100% / 13)),
+      repeating-linear-gradient(to bottom, rgba(255,255,255,.14) 0 1px, transparent 1px calc(100% / 4));
+  }
+  .laptop-trackpad {
+    position: absolute; bottom: 9%; left: 50%; transform: translateX(-50%);
+    width: 22%; height: 20%;
+    border: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
+    border-radius: 3px;
   }
   .laptop-mock::after {
-    content: ""; display: block; width: 74%; height: 22px; margin: 8px auto 0;
-    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--ink) 30%, transparent) 0%, transparent 72%);
+    content: ""; display: block; width: 58%; height: 10px; margin: 6px auto 0;
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--ink) 14%, transparent) 0%, transparent 75%);
   }
   .shot-caption {
-    text-align: center; margin: 6px 0 0;
+    text-align: center; margin: 10px 0 0;
     font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint);
   }
 
   @media (max-width: 720px) {
     .game-cards, .shots { grid-template-columns: 1fr; }
-    .laptop-mock--left .laptop, .laptop-mock--right .laptop { transform: rotateX(4deg) rotateY(0deg); }
+    .laptop-mock--left .laptop, .laptop-mock--right .laptop { transform: rotateX(9deg) rotateY(0deg); }
   }
 
   /* ---------- services ---------- */
@@ -518,11 +532,14 @@
         <div class="laptop-mock laptop-mock--left">
           <div class="laptop">
             <div class="laptop-screen">
-              <span class="laptop-cam" aria-hidden="true"></span>
+              <span class="laptop-notch" aria-hidden="true"></span>
               <img src="assets/jb-globe.jpg" alt="JB's Globe gameplay: a 3D globe with countries shaded by guess proximity, and a guess history panel">
             </div>
             <div class="laptop-hinge"></div>
-            <div class="laptop-base"></div>
+            <div class="laptop-base">
+              <div class="laptop-keys" aria-hidden="true"></div>
+              <div class="laptop-trackpad" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
         <p class="shot-caption">JB's Globe</p>
@@ -531,11 +548,14 @@
         <div class="laptop-mock laptop-mock--right">
           <div class="laptop">
             <div class="laptop-screen">
-              <span class="laptop-cam" aria-hidden="true"></span>
+              <span class="laptop-notch" aria-hidden="true"></span>
               <img src="assets/brander-five.jpg" alt="Brander's Five gameplay: five countries shaded by difficulty on the globe, with a scored results panel">
             </div>
             <div class="laptop-hinge"></div>
-            <div class="laptop-base"></div>
+            <div class="laptop-base">
+              <div class="laptop-keys" aria-hidden="true"></div>
+              <div class="laptop-trackpad" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
         <p class="shot-caption">Brander's Five</p>
