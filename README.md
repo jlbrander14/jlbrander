@@ -48,4 +48,5 @@ Colors, type, and spacing are all CSS custom properties at the top of `index.htm
 ```
 index.html   — the entire site
 assets/      — images (screenshots, etc.) — currently empty, placeholders in the Work section
+jeopardy/    — standalone Jeopardy game (TV board + phone buzzers), see jeopardy/README.md
 ```
